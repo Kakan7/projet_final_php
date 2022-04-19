@@ -1,5 +1,13 @@
-<?php
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php
 require "includes/head.html";
+?>
+    <title>Accueil</title>
+</head>
+<body>
+<?php
 require "includes/nav.html";
 ?>
 <div class="container-fluid">
@@ -12,3 +20,7 @@ require "includes/nav.html";
         Explicabo ad deleniti esse aliquam est? Nam, et.
     </article>
 </div>
+</body>
+</html>
+
+
