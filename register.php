@@ -47,8 +47,6 @@ isset($_POST['g-recaptcha-response'])
             $errors[] = 'Problème, veuillez ré-essayer';
         }
 
-        // $successMsg = 'Formulaire envoyé avec succès !';
-
     }
 }
 
