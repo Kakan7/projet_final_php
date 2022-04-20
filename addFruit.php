@@ -71,7 +71,10 @@ isset($_POST['description'])
                 $successMsg = 'Merci ' . $_SESSION['user']['pseudo'] . ', votre image a bien été envoyée !';
 
             }
-        }else{$newFileName = 'no-photo.png';}
+        }
+        else {
+            $newFileName = 'no-photo.png';
+        }
         if (
         isset($_POST['description'])) {
             if (mb_strlen($_POST['description']) > 0) {
@@ -79,7 +82,10 @@ isset($_POST['description'])
                     $errors[] = 'La description doit être comprise entre 5 et 20 000 caractères ';
                 }
             }
-        }else{$_POST['description'] = null;}
+        }
+        else {
+            $_POST['description'] = null;
+        }
 
 
     }
@@ -113,9 +119,6 @@ isset($_POST['description'])
 
 
 }
-
-
-
 
 ?>
 <!DOCTYPE html>

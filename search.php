@@ -5,10 +5,10 @@ session_start();
 require 'includes/tryCatch.php';
 if(isset($_GET['name'])){
 
-    $getFruits = $db->prepare(" SELECT * FROM fruits INNER JOIN users ON users.id = fruits.user_id WHERE fruits.name = ? ");
+    $getFruits = $db->prepare(" SELECT * FROM fruits INNER JOIN users ON users.id = fruits.user_id WHERE fruits.name LIKE ? ");
 
     $getFruits->execute([
-        $_GET['name'],
+        '%'.$_GET['name'].'%',
     ]);
 
 } else {

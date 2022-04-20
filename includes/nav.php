@@ -1,4 +1,8 @@
+<?php
 
+// echo basename($_SERVER['PHP_SELF']);
+
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Wikifruit</a>
@@ -10,32 +14,31 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                    <a class="nav-link<?php if(preg_match('/^\/projet_php\/index.php$/m' , $_SERVER['PHP_SELF'])){echo ' active';} ?>" aria-current="page" href="index.php">Accueil</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="fruitlist.php">Liste des Fruits</a>
+                    <a class="nav-link<?php if(preg_match('/^\/projet_php\/fruitlist.php$/m' , $_SERVER['PHP_SELF'])){echo ' active';} ?>" href="fruitlist.php">Liste des Fruits</a>
                 </li>
                 <?php
 if (!isset($_SESSION['user'])) { ?>
                 <li class="nav-item"></li>
-                <a class="nav-link" href="register.php">Inscription</a>
+                <a class="nav-link<?php if(preg_match('/^\/projet_php\/register.php$/m' , $_SERVER['PHP_SELF'])){echo ' active';} ?>" href="register.php">Inscription</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php">Connexion</a>
+                    <a class="nav-link<?php if(preg_match('/^\/projet_php\/login.php$/m' , $_SERVER['PHP_SELF'])){echo ' active';} ?>" href="login.php">Connexion</a>
                 </li>
-<?php
-}
-if ($_SESSION['user']) { ?>
+    <?php
+    } else { ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="profil.php">Profil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="addFruit.php">Ajouter un fruit</a>
+                    <a class="nav-link <?php if(preg_match('/^\/projet_php\/profil.php$/m' , $_SERVER['PHP_SELF'])){echo ' active';} ?>" href="profil.php">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Deconnexion</a>
+                    <a class="nav-link<?php if(preg_match('/^\/projet_php\/addFruit.php$/m' , $_SERVER['PHP_SELF'])){echo ' active';} ?>" href="addFruit.php">Ajouter un fruit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link<?php if(preg_match('/^\/projet_php\/logout.php$/m' , $_SERVER['PHP_SELF'])){echo ' active';} ?>" href="logout.php">Deconnexion</a>
                 </li>
 
 <?php

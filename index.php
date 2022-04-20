@@ -23,6 +23,7 @@ require "includes/nav.php";
         dolore ab praesentium recusandae quae debitis facere nesciunt eaque quasi alias iste.
         Explicabo ad deleniti esse aliquam est? Nam, et.
     </article>
+    <img src="pepe.png" alt="" style="width : 50%;">
 </div>
 </body>
 </html>

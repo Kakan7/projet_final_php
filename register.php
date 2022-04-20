@@ -18,6 +18,14 @@ isset($_POST['g-recaptcha-response'])
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'Email pas bon !';
     }
+    require 'includes/tryCatch.php';
+    $stmt = $db->prepare("SELECT * FROM users WHERE email=?");
+    $stmt->execute([$_POST['email']]);
+    $user = $stmt->fetch();
+    if ($user) {
+        $errors[] = 'Email deja pris';
+    }
+
     if (!preg_match('/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[ !"#\$%&\'()*+,\-.\/:;<=>?@[\\\\\]\^_`{\|}~]).{8,4096}$/u', $_POST['password'])) {
         $errors[] = 'Votre mot de passe doit contenir au moins 1 min, 1 maj, un chiffre, un caractère spécial et doit avoir au minimum 8 caractères.';
     }
@@ -91,6 +99,7 @@ if (isset($errors)) {
 // Affichage du message de succès s'il existe, sinon on affiche le formulaire
 if (isset($successMsg)) {
     echo '<p class="alert alert-success">' . $successMsg . '</p>';
+    echo '<img src="eheh.gif" alt="" style="width : 100%;">';
 }
 else {
 ?>
