@@ -32,6 +32,9 @@ if ($_SESSION['user']) { ?>
                     <a class="nav-link" href="profil.php">Profil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="addFruit.php">Ajouter un fruit</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Deconnexion</a>
                 </li>
 

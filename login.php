@@ -40,6 +40,7 @@ isset($_POST['password'])
                 $successMsg = 'Connexion';
 
                 $_SESSION['user'] = [
+                    'id'    => $user['id'],
                     'pseudo' => $user['pseudo'],
                     'email' => $user['email'],
                     'register_date' => $user['register_date'],
