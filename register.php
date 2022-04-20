@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (isset($_SESSION['user'])) {
+
+    header('Location: index.php');
+    die();
+
+}
 require "includes/recaptchaValid.php";
 
 if (
@@ -57,13 +64,13 @@ isset($_POST['g-recaptcha-response'])
 <head>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <?php
-require "includes/head.html";
+require "includes/head.php";
 ?>
     <title>Inscription</title>
 </head>
 <body>
     <?php
-require "includes/nav.html";
+require "includes/nav.php";
 ?>
 
 

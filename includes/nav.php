@@ -1,4 +1,4 @@
-<!-- navbar bootstap -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Wikifruit</a>
@@ -14,9 +14,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Liste des Fruits</a>
+                    <a class="nav-link" href="fruitlist.php">Liste des Fruits</a>
                 </li>
-
+                <?php
+if (!isset($_SESSION['user'])) { ?>
                 <li class="nav-item"></li>
                 <a class="nav-link" href="register.php">Inscription</a>
                 </li>
@@ -24,6 +25,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Connexion</a>
                 </li>
+<?php
+}
+if ($_SESSION['user']) { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Deconnexion</a>
+                </li>
+
+<?php
+}
+?>
+
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Chercher un fruit" aria-label="Search">

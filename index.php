@@ -1,14 +1,18 @@
+
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <?php
-require "includes/head.html";
+require "includes/head.php";
 ?>
     <title>Accueil</title>
 </head>
 <body>
 <?php
-require "includes/nav.html";
+require "includes/nav.php";
 ?>
 <div class="container-fluid">
     <article class="col-12 col-md-8 mx-auto py-5">

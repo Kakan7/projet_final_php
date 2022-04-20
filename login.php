@@ -1,6 +1,12 @@
 <?php
-require "includes/recaptchaValid.php";
+session_start();
+if (isset($_SESSION['user'])) {
 
+    header('Location: index.php');
+    die();
+
+}
+require "includes/recaptchaValid.php";
 
 if (
 isset($_POST['email']) &&
@@ -30,9 +36,15 @@ isset($_POST['password'])
         if (!empty($user)) {
 
 
-            if ( password_verify($_POST['password'], $user['password']) ) {
+            if (password_verify($_POST['password'], $user['password'])) {
                 $successMsg = 'Connexion';
-            }else{
+
+                $_SESSION['user'] = [
+                    'firstname' => $user['pseudo'],
+                    'connected' => true,
+                ];
+            }
+            else {
                 $errors[] = 'Mot de passe incorrect';
             }
 
@@ -50,13 +62,13 @@ isset($_POST['password'])
 <head>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <?php
-require "includes/head.html";
+require "includes/head.php";
 ?>
-    <title>Inscription</title>
+    <title>Connexion</title>
 </head>
 <body>
     <?php
-require "includes/nav.html";
+require "includes/nav.php";
 if (isset($successMsg)) {
     echo '<p class="alert alert-success">' . $successMsg . '</p>';
 }
