@@ -9,7 +9,7 @@ if(isset($_SESSION['user'])){
 
 
 
-}else{
+
 
 ?>
 <!DOCTYPE html>
@@ -23,8 +23,8 @@ require "includes/head.php";
 <body>
     <?php require 'includes/nav.php';
 
-    if(isset($successMessage)){
-        echo '<p style="color:green;">' . $successMessage . '<p>';
+    if(isset($successMsg)){
+        echo '<p style="color:green;">' . $successMsg . '<p>';
     } else {
         echo '<p style="color:red;">Vous devez être connecté pour venir sur cette page !</p>';
     }
@@ -34,5 +34,9 @@ require "includes/head.php";
 </body>
 </html>
 <?php
+}else{
+    header('Location: index.php');
+    die();
+
 }
 ?>

@@ -40,8 +40,9 @@ isset($_POST['password'])
                 $successMsg = 'Connexion';
 
                 $_SESSION['user'] = [
-                    'firstname' => $user['pseudo'],
-                    'connected' => true,
+                    'pseudo' => $user['pseudo'],
+                    'email' => $user['email'],
+                    'register_date' => $user['register_date'],
                 ];
             }
             else {

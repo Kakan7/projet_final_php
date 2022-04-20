@@ -29,6 +29,9 @@ if (!isset($_SESSION['user'])) { ?>
 }
 if ($_SESSION['user']) { ?>
                 <li class="nav-item">
+                    <a class="nav-link" href="profil.php">Profil</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Deconnexion</a>
                 </li>
 
