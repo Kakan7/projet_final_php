@@ -3,14 +3,26 @@ session_start();
 
 // Connexion à la BDD
 require 'includes/tryCatch.php';
-$fruitsInfo = $db->query("SELECT fruits.*, users.pseudo FROM fruits INNER JOIN users ON users.id = fruits.user_id");
+if(isset($_GET['name'])){
 
-$fruits = $fruitsInfo->fetchAll(PDO::FETCH_ASSOC);
+    $getFruits = $db->prepare(" SELECT * FROM fruits INNER JOIN users ON users.id = fruits.user_id WHERE fruits.name = ? ");
 
-$fruitsInfo->closeCursor();
+    $getFruits->execute([
+        $_GET['name'],
+    ]);
+
+} else {
+
+    $getFruits = $db->query("SELECT * FROM fruits");
+}
+
+$fruits = $getFruits->fetchAll(PDO::FETCH_ASSOC);
+
+$getFruits->closeCursor();
+
 
 // echo '<pre>';
-// print_r($fruits);
+// print_r($getFruits);
 // print_r($fruits);
 // echo '</pre>';
 ?>

@@ -43,9 +43,9 @@ if ($_SESSION['user']) { ?>
 ?>
 
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Chercher un fruit" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"
+            <form class="d-flex" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" name="name" placeholder="Chercher un fruit" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" name="q"><i class="fa fa-search"
                         aria-hidden="true"></i></button>
             </form>
         </div>
